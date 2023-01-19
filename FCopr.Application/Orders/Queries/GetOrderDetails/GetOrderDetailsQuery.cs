@@ -9,6 +9,6 @@ namespace FCopr.Application.Orders.Queries.GetOrderDetails
 {
     public class GetOrderDetailsQuery : IRequest<OrderDetailsVm>
     {
-        public Guid Id { get; set; }
+        public ushort OrderId { get; set; }
     }
 }

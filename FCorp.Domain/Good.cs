@@ -8,7 +8,6 @@ namespace FCorp.Domain
 {
     public class Good
     {
-        public Guid Id { get; set; }
         public sbyte Articul { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }

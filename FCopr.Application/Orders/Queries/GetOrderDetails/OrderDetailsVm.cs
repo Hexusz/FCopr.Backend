@@ -11,7 +11,6 @@ namespace FCopr.Application.Orders.Queries.GetOrderDetails
 {
     public class OrderDetailsVm : IMapWith<Order>
     {
-        public Guid Id { get; set; }
         public ushort OrderId { get; set; }
         public string ClientFullName { get; set; }
         public OrderStatus Status { get; set; }
@@ -24,8 +23,6 @@ namespace FCopr.Application.Orders.Queries.GetOrderDetails
                     opt => opt.MapFrom(order => order.ClientFullName))
                 .ForMember(orderVm => orderVm.OrderId,
                     opt => opt.MapFrom(order => order.OrderId))
-                .ForMember(orderVm => orderVm.Id,
-                    opt => opt.MapFrom(order => order.Id))
                 .ForMember(orderVm => orderVm.OrderPositions,
                     opt => opt.MapFrom(order => order.OrderPositions))
                 .ForMember(orderVm => orderVm.Status,

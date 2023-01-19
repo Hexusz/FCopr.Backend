@@ -13,8 +13,9 @@ namespace FCorp.Persistence.EntityTypeConfigurations
     {
         public void Configure(EntityTypeBuilder<Order> builder)
         {
-            builder.HasKey(order => order.Id);
-            builder.HasIndex(order => order.Id).IsUnique();
+            builder.Property(e => e.OrderId).ValueGeneratedOnAdd();
+            builder.HasKey(order => order.OrderId);
+            builder.HasIndex(order => order.OrderId).IsUnique();
             builder.Property(order => order.ClientFullName).HasMaxLength(250);
         }
     }

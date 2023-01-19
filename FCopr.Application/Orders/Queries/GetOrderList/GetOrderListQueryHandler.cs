@@ -26,7 +26,7 @@ namespace FCopr.Application.Orders.Queries.GetOrderList
             CancellationToken cancellationToken)
         {
             var ordersQuery = await _dbContext.Orders
-                .Where(order => order.Id == request.Id)
+                .Where(order => order.OrderId > 0)
                 .ProjectTo<OrderLookupDto>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 

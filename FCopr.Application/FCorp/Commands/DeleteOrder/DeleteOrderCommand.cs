@@ -9,6 +9,6 @@ namespace FCopr.Application.FCorp.Commands.DeleteOrder
 {
     public class DeleteOrderCommand : IRequest
     {
-        public Guid Id { get; set; }
+        public ushort OrderId { get; set; }
     }
 }

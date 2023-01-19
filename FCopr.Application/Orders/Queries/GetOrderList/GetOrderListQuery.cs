@@ -9,6 +9,6 @@ namespace FCopr.Application.Orders.Queries.GetOrderList
 {
     public class GetOrderListQuery: IRequest<OrderListVm>
     {
-        public Guid Id { get; set; }
+
     }
 }

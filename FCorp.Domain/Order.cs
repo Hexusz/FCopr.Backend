@@ -8,7 +8,6 @@ namespace FCorp.Domain
 {
     public class Order
     {
-        public Guid Id { get; set; }
         public ushort OrderId { get; set; }
         public string ClientFullName { get; set; }
         public OrderStatus Status { get; set; }

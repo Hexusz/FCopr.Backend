@@ -14,7 +14,6 @@ namespace FCopr.Application.FCorp.Commands.DeleteOrder
     public class DeleteOrderCommandHandler
     : IRequestHandler<DeleteOrderCommand>
     {
-
         private readonly IFCorpDbContext _dbContext;
 
         public DeleteOrderCommandHandler(IFCorpDbContext dbContext) =>
@@ -23,11 +22,11 @@ namespace FCopr.Application.FCorp.Commands.DeleteOrder
             CancellationToken cancellationToken)
         {
             var entity = await _dbContext.Orders
-                .FindAsync(new object[] {request.Id}, cancellationToken);
+                .FindAsync(new object[] { request.OrderId }, cancellationToken);
 
-            if (entity == null || entity.Id != request.Id)
+            if (entity == null || entity.OrderId != request.OrderId)
             {
-                throw new NotFoundException(nameof(Order), request.Id);
+                throw new NotFoundException(nameof(Order), request.OrderId);
             }
 
             if (entity.Status == OrderStatus.Registered)

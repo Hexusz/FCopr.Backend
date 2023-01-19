@@ -11,7 +11,7 @@ using FCorp.Domain;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace FCopr.Application.Notes.Queries.GetOrderDetails
+namespace FCopr.Application.Orders.Queries.GetOrderDetails
 {
     public class GetOrderDetailsQueryHandler : IRequestHandler<GetOrderDetailsQuery, OrderDetailsVm>
     {

@@ -7,7 +7,7 @@ using AutoMapper;
 using FCopr.Application.Common.Mappings;
 using FCorp.Domain;
 
-namespace FCopr.Application.Notes.Queries.GetOrderList
+namespace FCopr.Application.Orders.Queries.GetOrderList
 {
     public class OrderLookupDto : IMapWith<Order>
     {

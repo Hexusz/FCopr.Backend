@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FCopr.Application.Notes.Queries.GetOrderList
+namespace FCopr.Application.Orders.Queries.GetOrderList
 {
     public class OrderListVm
     {

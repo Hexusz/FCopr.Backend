@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MediatR;
 
-namespace FCopr.Application.Notes.Queries.GetOrderDetails
+namespace FCopr.Application.Orders.Queries.GetOrderDetails
 {
     public class GetOrderDetailsQuery : IRequest<OrderDetailsVm>
     {

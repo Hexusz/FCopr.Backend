@@ -10,7 +10,7 @@ using FCopr.Application.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace FCopr.Application.Notes.Queries.GetOrderList
+namespace FCopr.Application.Orders.Queries.GetOrderList
 {
     public class GetOrderListQueryHandler
         : IRequestHandler<GetOrderListQuery, OrderListVm>

@@ -15,7 +15,7 @@ namespace FCorp.Persistence
             {
                 options.UseSqlite(connectionString);
             });
-            services.AddScoped<FCorpDbContext>(provider =>
+            services.AddScoped<IFCorpDbContext>(provider =>
                 provider.GetService<FCorpDbContext>());
             return services;
         }

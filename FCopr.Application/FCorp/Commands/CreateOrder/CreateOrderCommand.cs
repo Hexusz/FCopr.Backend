@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FCorp.Domain;
+using MediatR;
 
-namespace FCorp.Domain
+namespace FCopr.Application.FCorp.Commands.CreateOrder
 {
-    public class Order
+    public class CreateOrderCommand : IRequest<Guid>
     {
-        public Guid Id { get; set; }
-        public ushort OrderId { get; set; }
+        public ushort Id { get; set; }
         public string ClientFullName { get; set; }
         public OrderStatus Status { get; set; }
         public List<OrderPosition> OrderPositions { get; set; }

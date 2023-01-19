@@ -13,8 +13,8 @@ namespace FCorp.Persistence.EntityTypeConfigurations
     {
         public void Configure(EntityTypeBuilder<Good> builder)
         {
-            builder.HasKey(order => order.Articul);
-            builder.HasIndex(order => order.Articul).IsUnique();
+            builder.HasKey(order => order.Id);
+            builder.HasIndex(order => order.Id).IsUnique();
         }
     }
 }

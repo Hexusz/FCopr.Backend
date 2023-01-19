@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MediatR;
 
-namespace FCorp.Domain
+namespace FCopr.Application.FCorp.Commands.DeleteOrder
 {
-    public class Good
+    public class DeleteOrderCommand : IRequest
     {
         public Guid Id { get; set; }
-        public sbyte Articul { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
     }
 }

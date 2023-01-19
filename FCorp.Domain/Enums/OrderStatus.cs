@@ -1,6 +1,6 @@
 ﻿namespace FCorp.Domain
 {
-    public enum OrderState
+    public enum OrderStatus
     {
         Registered,
         Formed,

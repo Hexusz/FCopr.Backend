@@ -12,6 +12,7 @@ namespace FCopr.Application.Interfaces
     public interface IFCorpDbContext
     {
         DbSet<Order> Orders { get; set; }
+        DbSet<Good> Goods { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

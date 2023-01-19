@@ -12,14 +12,18 @@ namespace FCorp.Persistence
 {
     public class FCorpDbContext : DbContext, IFCorpDbContext
     {
-      public  DbSet<Order> Orders { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
-      public FCorpDbContext(DbContextOptions<FCorpDbContext> options)
-          : base(options) { }
+        public DbSet<Good> Goods { get; set; }
 
-      protected override void OnModelCreating(ModelBuilder builder)
-      {
-          builder.ApplyConfiguration(new FCorpConfiguration());
-      }
+
+        public FCorpDbContext(DbContextOptions<FCorpDbContext> options)
+            : base(options) { }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.ApplyConfiguration(new OrderConfiguration());
+            builder.ApplyConfiguration(new GoodConfiguration());
+        }
     }
 }

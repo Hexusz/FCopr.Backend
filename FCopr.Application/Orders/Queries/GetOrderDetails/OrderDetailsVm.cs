@@ -7,7 +7,7 @@ using AutoMapper;
 using FCopr.Application.Common.Mappings;
 using FCorp.Domain;
 
-namespace FCopr.Application.Notes.Queries.GetOrderDetails
+namespace FCopr.Application.Orders.Queries.GetOrderDetails
 {
     public class OrderDetailsVm : IMapWith<Order>
     {

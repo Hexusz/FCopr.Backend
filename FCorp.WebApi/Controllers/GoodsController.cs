@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using FCopr.Application.FCorp.Commands.CreateOrder;
 using FCopr.Application.FCorp.Commands.DeleteOrder;
+using FCopr.Application.Orders.Queries.GetGoodDetails;
 using FCopr.Application.Orders.Queries.GetGoodList;
 using FCopr.Application.Orders.Queries.GetOrderDetails;
 using FCopr.Application.Orders.Queries.GetOrderList;
@@ -32,15 +33,15 @@ namespace FCorp.WebApi.Controllers
             return Ok(vm);
         }
 
-        // [HttpGet("{id}")]
-        // public async Task<ActionResult<OrderDetailsVm>> Get(ushort id)
-        // {
-        //     var query = new GetOrderDetailsQuery
-        //     {
-        //         OrderId = id
-        //     };
-        //     var vm = await Mediator.Send(query);
-        //     return Ok(vm);
-        // }
+        [HttpGet("{id}")]
+        public async Task<ActionResult<GoodDetailsVm>> Get(sbyte id)
+        {
+            var query = new GetGoodDetailsQuery
+            {
+                Articul = id
+            };
+            var vm = await Mediator.Send(query);
+            return Ok(vm);
+        }
     }
 }

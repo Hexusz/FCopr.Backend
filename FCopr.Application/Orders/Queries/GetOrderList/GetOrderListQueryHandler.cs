@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using FCopr.Application.Interfaces;
+using FCorp.Domain;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,7 +27,7 @@ namespace FCopr.Application.Orders.Queries.GetOrderList
             CancellationToken cancellationToken)
         {
             var ordersQuery = await _dbContext.Orders
-                .Where(order => order.OrderId > 0)
+                .Where(order => order.Status == OrderStatus.Registered)
                 .ProjectTo<OrderLookupDto>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 

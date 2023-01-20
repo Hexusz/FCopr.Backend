@@ -7,7 +7,7 @@ using MediatR;
 
 namespace FCopr.Application.Orders.Queries.GetOrderList
 {
-    public class GetOrderListQuery: IRequest<OrderListVm>
+    public class GetOrderListQuery : IRequest<OrderListVm>
     {
 
     }

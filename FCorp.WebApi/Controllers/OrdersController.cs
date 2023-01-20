@@ -14,11 +14,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace FCorp.WebApi.Controllers
 {
     [Route("api/[controller]")]
-    public class OrderController : BaseController
+    public class OrdersController : BaseController
     {
         private readonly IMapper _mapper;
 
-        public OrderController(IMapper mapper) => _mapper = mapper;
+        public OrdersController(IMapper mapper) => _mapper = mapper;
 
         [HttpGet]
         public async Task<ActionResult<OrderListVm>> GetAll()
@@ -43,11 +43,11 @@ namespace FCorp.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Guid>> Create([FromBody] CreateOrderDto createNoteDto)
+        public async Task<ActionResult<ushort>> Create([FromBody] CreateOrderDto createNoteDto)
         {
             var command = _mapper.Map<CreateOrderCommand>(createNoteDto);
             command.ClientFullName = createNoteDto.ClientFullName;
-            command.OrderPositions = createNoteDto.OrderPositions;
+            command.Goods = createNoteDto.Goods;
             command.Status = createNoteDto.Status;
             var noteId = await Mediator.Send(command);
             return Ok(noteId);

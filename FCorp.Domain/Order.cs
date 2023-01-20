@@ -11,6 +11,6 @@ namespace FCorp.Domain
         public ushort OrderId { get; set; }
         public string ClientFullName { get; set; }
         public OrderStatus Status { get; set; }
-        public List<OrderPosition> OrderPositions { get; set; }
+        public List<Good> Goods { get; set; }
     }
 }

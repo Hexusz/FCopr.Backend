@@ -8,6 +8,7 @@ using FCopr.Application.FCorp.Commands.CreateOrder;
 using FCopr.Application.FCorp.Commands.DeleteOrder;
 using FCopr.Application.Orders.Queries.GetOrderDetails;
 using FCopr.Application.Orders.Queries.GetOrderList;
+using FCorp.Domain;
 using FCorp.WebApi.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -47,8 +48,13 @@ namespace FCorp.WebApi.Controllers
         {
             var command = _mapper.Map<CreateOrderCommand>(createOrderDto);
             command.ClientFullName = createOrderDto.ClientFullName;
-            command.Goods = createOrderDto.Goods;
+            command.Positions = createOrderDto.Positions;
             command.Status = createOrderDto.Status;
+            command.Positions = new List<OrderPositions>()
+            {
+                new OrderPositions(){OrderId = command.OrderId, GoodId = 1},
+                new OrderPositions(){OrderId = command.OrderId, GoodId = 2}
+            };
             var orderId = await Mediator.Send(command);
             return Ok(orderId);
         }

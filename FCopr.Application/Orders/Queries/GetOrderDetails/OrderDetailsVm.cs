@@ -14,7 +14,7 @@ namespace FCopr.Application.Orders.Queries.GetOrderDetails
         public ushort OrderId { get; set; }
         public string ClientFullName { get; set; }
         public OrderStatus Status { get; set; }
-        public List<Good> Goods { get; set; }
+        public List<OrderPositions> Positions { get; set; }
 
         public void Mapping(Profile profile)
         {
@@ -23,8 +23,8 @@ namespace FCopr.Application.Orders.Queries.GetOrderDetails
                     opt => opt.MapFrom(order => order.ClientFullName))
                 .ForMember(orderVm => orderVm.OrderId,
                     opt => opt.MapFrom(order => order.OrderId))
-                .ForMember(orderVm => orderVm.Goods,
-                    opt => opt.MapFrom(order => order.Goods))
+                .ForMember(orderVm => orderVm.Positions,
+                    opt => opt.MapFrom(order => order.Positions))
                 .ForMember(orderVm => orderVm.Status,
                     opt => opt.MapFrom(order => order.Status));
         }

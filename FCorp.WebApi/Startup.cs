@@ -28,7 +28,8 @@ namespace FCorp.WebApi
             services.AddApplication();
             services.AddPersistence(Configuration);
             services.AddControllers();
-
+            services.AddControllers().AddNewtonsoftJson(x =>
+                x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowAll", policy =>

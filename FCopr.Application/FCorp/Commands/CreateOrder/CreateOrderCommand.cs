@@ -13,6 +13,6 @@ namespace FCopr.Application.FCorp.Commands.CreateOrder
         public ushort OrderId { get; set; }
         public string ClientFullName { get; set; }
         public OrderStatus Status { get; set; }
-        public List<Good> Goods { get; set; }
+        public List<OrderPositions> Positions { get; set; }
     }
 }

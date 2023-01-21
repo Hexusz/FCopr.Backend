@@ -13,6 +13,8 @@ namespace FCopr.Application.Interfaces
     {
         DbSet<Order> Orders { get; set; }
         DbSet<Good> Goods { get; set; }
+        DbSet<OrderPositions> OrderPositions { get; set; }
+
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

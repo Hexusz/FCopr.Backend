@@ -15,7 +15,7 @@ namespace FCorp.WebApi.Models
         public ushort OrderId { get; set; }
         public string ClientFullName { get; set; }
         public OrderStatus Status { get; set; }
-        public List<Good> Goods { get; set; }
+        public List<OrderPositions> Positions { get; set; }
 
         public void Mapping(Profile profile)
         {
@@ -26,8 +26,8 @@ namespace FCorp.WebApi.Models
                     opt => opt.MapFrom(orderDto => orderDto.ClientFullName))
                 .ForMember(orderCommand => orderCommand.Status,
                     opt => opt.MapFrom(orderDto => orderDto.Status))
-                .ForMember(orderCommand => orderCommand.Goods,
-                    opt => opt.MapFrom(orderDto => orderDto.Goods));
+                .ForMember(orderCommand => orderCommand.Positions,
+                    opt => opt.MapFrom(orderDto => orderDto.Positions));
         }
     }
 }

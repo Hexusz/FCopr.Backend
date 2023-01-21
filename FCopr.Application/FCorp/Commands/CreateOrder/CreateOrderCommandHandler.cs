@@ -24,7 +24,7 @@ namespace FCopr.Application.FCorp.Commands.CreateOrder
             var order = new Order
             {
                 ClientFullName = request.ClientFullName,
-                Goods = request.Goods,
+                Positions = request.Positions,
                 Status = request.Status
             };
 

@@ -13,7 +13,7 @@ namespace FCorp.Persistence
     public class FCorpDbContext : DbContext, IFCorpDbContext
     {
         public DbSet<Order> Orders { get; set; }
-
+        public DbSet<OrderPositions> OrderPositions { get; set; }
         public DbSet<Good> Goods { get; set; }
 
 
@@ -23,6 +23,7 @@ namespace FCorp.Persistence
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new OrderConfiguration());
+            builder.ApplyConfiguration(new OrderPositionsConfiguration());
             builder.ApplyConfiguration(new GoodConfiguration());
         }
     }

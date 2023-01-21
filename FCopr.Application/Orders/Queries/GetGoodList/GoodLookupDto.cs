@@ -13,12 +13,18 @@ namespace FCopr.Application.Orders.Queries.GetGoodList
     public class GoodLookupDto : IMapWith<Good>
     {
         public sbyte Articul { get; set; }
+        public string Name { get; set; }
+        public decimal Price { get; set; }
 
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Good, GoodLookupDto>()
+                .ForMember(goodDto => goodDto.Name,
+                    opt => opt.MapFrom(good => good.Name))
                 .ForMember(goodDto => goodDto.Articul,
-                    opt => opt.MapFrom(good => good.Articul));
+                    opt => opt.MapFrom(good => good.Articul))
+                .ForMember(goodDto => goodDto.Price,
+                    opt => opt.MapFrom(good => good.Price));
         }
     }
 }

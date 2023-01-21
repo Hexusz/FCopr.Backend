@@ -18,7 +18,6 @@ namespace FCorp.Persistence.EntityTypeConfigurations
             builder.HasKey(order => order.OrderId);
             builder.HasIndex(order => order.OrderId).IsUnique();
             builder.Property(order => order.ClientFullName).HasMaxLength(250);
-
         }
 
     }

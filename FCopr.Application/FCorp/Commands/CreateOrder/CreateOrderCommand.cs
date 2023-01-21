@@ -8,7 +8,7 @@ using MediatR;
 
 namespace FCopr.Application.FCorp.Commands.CreateOrder
 {
-    public class CreateOrderCommand : IRequest<ushort>
+    public class CreateOrderCommand : IRequest<Order>
     {
         public ushort OrderId { get; set; }
         public string ClientFullName { get; set; }

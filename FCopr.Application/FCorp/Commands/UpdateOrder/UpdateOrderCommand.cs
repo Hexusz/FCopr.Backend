@@ -5,7 +5,7 @@ using MediatR;
 
 namespace FCopr.Application.FCorp.Commands.UpdateOrder
 {
-    public class UpdateOrderCommand : IRequest
+    public class UpdateOrderCommand : IRequest<Order>
     {
         public ushort OrderId { get; set; }
         public string ClientFullName { get; set; }

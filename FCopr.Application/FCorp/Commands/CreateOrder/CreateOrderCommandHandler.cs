@@ -11,14 +11,14 @@ using MediatR;
 namespace FCopr.Application.FCorp.Commands.CreateOrder
 {
     public class CreateOrderCommandHandler
-    : IRequestHandler<CreateOrderCommand, ushort>
+    : IRequestHandler<CreateOrderCommand, Order>
     {
         private readonly IFCorpDbContext _dbContext;
 
         public CreateOrderCommandHandler(IFCorpDbContext dbContext) =>
             _dbContext = dbContext;
 
-        public async Task<ushort> Handle(CreateOrderCommand request,
+        public async Task<Order> Handle(CreateOrderCommand request,
             CancellationToken cancellationToken)
         {
             var order = new Order
@@ -31,7 +31,7 @@ namespace FCopr.Application.FCorp.Commands.CreateOrder
             await _dbContext.Orders.AddAsync(order, cancellationToken);
             await _dbContext.SaveChangesAsync(cancellationToken);
 
-            return order.OrderId;
+            return order;
         }
     }
 }

@@ -69,7 +69,7 @@ namespace FCorp.WebApi.Controllers
             command.Positions = updateOrderDto.Positions;
             command.Status = updateOrderDto.Status;
             var orderI = await Mediator.Send(command);
-            return Ok(updateOrderDto);
+            return Ok(orderI);
         }
 
         [HttpDelete("{id}")]

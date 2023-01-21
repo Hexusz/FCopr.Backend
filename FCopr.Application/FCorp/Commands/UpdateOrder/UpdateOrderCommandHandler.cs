@@ -12,14 +12,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FCopr.Application.FCorp.Commands.UpdateOrder
 {
-    public class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand>
+    public class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand, Order>
     {
         private readonly IFCorpDbContext _dbContext;
 
         public UpdateOrderCommandHandler(IFCorpDbContext dbContext) =>
             _dbContext = dbContext;
 
-        public async Task<Unit> Handle(UpdateOrderCommand request,
+        public async Task<Order> Handle(UpdateOrderCommand request,
             CancellationToken cancellationToken)
         {
             var entity =
@@ -39,7 +39,7 @@ namespace FCopr.Application.FCorp.Commands.UpdateOrder
 
             await _dbContext.SaveChangesAsync(cancellationToken);
 
-            return Unit.Value;
+            return entity;
         }
     }
 }

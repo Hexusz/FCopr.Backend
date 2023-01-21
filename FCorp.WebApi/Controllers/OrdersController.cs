@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using FCopr.Application.FCorp.Commands.CreateOrder;
 using FCopr.Application.FCorp.Commands.DeleteOrder;
+using FCopr.Application.FCorp.Commands.PartialUpdateOrder;
 using FCopr.Application.FCorp.Commands.UpdateOrder;
 using FCopr.Application.Orders.Queries.GetOrderDetails;
 using FCopr.Application.Orders.Queries.GetOrderList;
@@ -68,6 +69,18 @@ namespace FCorp.WebApi.Controllers
             command.ClientFullName = updateOrderDto.ClientFullName;
             command.Positions = updateOrderDto.Positions;
             command.Status = updateOrderDto.Status;
+            var orderI = await Mediator.Send(command);
+            return Ok(orderI);
+        }
+
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> PartialUpdate(ushort id, [FromBody] PartialUpdateOrderDto partialUpdateOrderDto)
+        {
+            var command = _mapper.Map<PartialUpdateOrderCommand>(partialUpdateOrderDto);
+            command.OrderId = id;
+            command.ClientFullName = partialUpdateOrderDto.ClientFullName;
+            command.Positions = partialUpdateOrderDto.Positions;
+            command.Status = partialUpdateOrderDto.Status;
             var orderI = await Mediator.Send(command);
             return Ok(orderI);
         }

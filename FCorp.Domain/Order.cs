@@ -12,6 +12,7 @@ namespace FCorp.Domain
         public ushort OrderId { get; set; }
         public string ClientFullName { get; set; }
         public OrderStatus Status { get; set; }
+        public DateTime CreateDate { get; set; }
 
         //Ссылка на позиции заказа
         public List<OrderPositions> Positions { get; set; } = new List<OrderPositions>();

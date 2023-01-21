@@ -23,6 +23,7 @@ namespace FCopr.Application.FCorp.Commands.CreateOrder
         {
             var order = new Order
             {
+                CreateDate = DateTime.Now,
                 ClientFullName = request.ClientFullName,
                 Positions = request.Positions,
                 Status = request.Status

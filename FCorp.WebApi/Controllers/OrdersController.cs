@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using FCopr.Application.FCorp.Commands.CreateOrder;
 using FCopr.Application.FCorp.Commands.DeleteOrder;
+using FCopr.Application.FCorp.Commands.UpdateOrder;
 using FCopr.Application.Orders.Queries.GetOrderDetails;
 using FCopr.Application.Orders.Queries.GetOrderList;
 using FCorp.Domain;
@@ -57,6 +58,18 @@ namespace FCorp.WebApi.Controllers
             };
             var orderId = await Mediator.Send(command);
             return Ok(orderId);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(ushort id, [FromBody] UpdateOrderDto updateOrderDto)
+        {
+            var command = _mapper.Map<UpdateOrderCommand>(updateOrderDto);
+            command.OrderId = id;
+            command.ClientFullName = updateOrderDto.ClientFullName;
+            command.Positions = updateOrderDto.Positions;
+            command.Status = updateOrderDto.Status;
+            var orderI = await Mediator.Send(command);
+            return Ok(updateOrderDto);
         }
 
         [HttpDelete("{id}")]

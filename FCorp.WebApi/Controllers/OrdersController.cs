@@ -43,14 +43,14 @@ namespace FCorp.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ushort>> Create([FromBody] CreateOrderDto createNoteDto)
+        public async Task<ActionResult<ushort>> Create([FromBody] CreateOrderDto createOrderDto)
         {
-            var command = _mapper.Map<CreateOrderCommand>(createNoteDto);
-            command.ClientFullName = createNoteDto.ClientFullName;
-            command.Goods = createNoteDto.Goods;
-            command.Status = createNoteDto.Status;
-            var noteId = await Mediator.Send(command);
-            return Ok(noteId);
+            var command = _mapper.Map<CreateOrderCommand>(createOrderDto);
+            command.ClientFullName = createOrderDto.ClientFullName;
+            command.Goods = createOrderDto.Goods;
+            command.Status = createOrderDto.Status;
+            var orderId = await Mediator.Send(command);
+            return Ok(orderId);
         }
 
         [HttpDelete("{id}")]

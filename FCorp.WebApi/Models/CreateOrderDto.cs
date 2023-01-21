@@ -21,13 +21,13 @@ namespace FCorp.WebApi.Models
         {
             profile.CreateMap<CreateOrderDto, CreateOrderCommand>()
                 .ForMember(orderCommand => orderCommand.OrderId,
-                    opt => opt.MapFrom(noteDto => noteDto.OrderId))
+                    opt => opt.MapFrom(orderDto => orderDto.OrderId))
                 .ForMember(orderCommand => orderCommand.ClientFullName,
-                    opt => opt.MapFrom(noteDto => noteDto.ClientFullName))
+                    opt => opt.MapFrom(orderDto => orderDto.ClientFullName))
                 .ForMember(orderCommand => orderCommand.Status,
-                    opt => opt.MapFrom(noteDto => noteDto.Status))
+                    opt => opt.MapFrom(orderDto => orderDto.Status))
                 .ForMember(orderCommand => orderCommand.Goods,
-                    opt => opt.MapFrom(noteDto => noteDto.Goods));
+                    opt => opt.MapFrom(orderDto => orderDto.Goods));
         }
     }
 }

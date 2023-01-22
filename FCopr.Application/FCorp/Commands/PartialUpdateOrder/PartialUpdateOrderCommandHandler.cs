@@ -50,6 +50,20 @@ namespace FCopr.Application.FCorp.Commands.PartialUpdateOrder
                 entity.Positions.AddRange(request.Positions);
             }
 
+            var goodsCount = entity.Positions.Sum(x => x.Count);
+
+            if (goodsCount > 10)
+            {
+                throw new IncorrectAmountGoodsException(goodsCount, request.Positions);
+            }
+
+            var goodsPrice = entity.Positions.Sum(x => _dbContext.Goods.First(g => g.Articul == x.GoodArticul).Price * x.Count);
+
+            if (goodsPrice > 15000)
+            {
+                throw new IncorrectPriceException(goodsPrice, request.Positions);
+            }
+
             await _dbContext.SaveChangesAsync(cancellationToken);
 
             return entity;

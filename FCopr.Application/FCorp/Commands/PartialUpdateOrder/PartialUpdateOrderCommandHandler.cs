@@ -33,6 +33,11 @@ namespace FCopr.Application.FCorp.Commands.PartialUpdateOrder
                 throw new NotFoundException(nameof(Order), request.OrderId);
             }
 
+            if (entity.Status != OrderStatus.Registered)
+            {
+                throw new IncorrectStatusException(entity.OrderId, entity.Status, request.OrderId);
+            }
+
             entity.OrderId = request.OrderId;
 
             if (request.ClientFullName != null)

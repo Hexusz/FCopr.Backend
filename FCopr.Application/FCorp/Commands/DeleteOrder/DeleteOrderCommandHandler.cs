@@ -36,7 +36,7 @@ namespace FCopr.Application.FCorp.Commands.DeleteOrder
             }
             else
             {
-                //У заказа статус отличный от "Зарегистрирован"
+                throw new IncorrectStatusException(entity.OrderId, entity.Status, request.OrderId);
             }
 
             return Unit.Value;

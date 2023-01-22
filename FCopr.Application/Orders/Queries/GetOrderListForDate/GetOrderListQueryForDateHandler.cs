@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using FCopr.Application.Interfaces;
+using FCopr.Application.Orders.Queries.GetOrderList;
 using FCorp.Domain;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace FCopr.Application.Orders.Queries.GetOrderList
+namespace FCopr.Application.Orders.Queries.GetOrderListForDate
 {
     public class GetOrderListQueryForDateHandler : IRequestHandler<GetOrderListQueryForDate, OrderListVm>
     {

@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AutoMapper;
-using FCopr.Application.FCorp.Commands.CreateOrder;
-using FCopr.Application.FCorp.Commands.DeleteOrder;
-using FCopr.Application.FCorp.Commands.PartialUpdateOrder;
-using FCopr.Application.FCorp.Commands.UpdateOrder;
-using FCopr.Application.Orders.Queries.GetOrderDetails;
 using FCopr.Application.Orders.Queries.GetOrderList;
-using FCorp.Domain;
-using FCorp.WebApi.Models;
+using FCopr.Application.Orders.Queries.GetOrderListForDate;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FCorp.WebApi.Controllers

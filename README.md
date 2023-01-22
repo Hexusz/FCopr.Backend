@@ -1,4 +1,5 @@
 # FCopr.Backend
 #### Реализован REST API для сайта интернет-магазина
 ###### Стек: ASP .NET Core 3.1
+###### БД: SQLite, файл Hexusz.Orders.db уже заполнен тестовыми данными
 ![image](https://user-images.githubusercontent.com/29149064/213919050-14054936-3e7c-4da1-beeb-ae46147b0af8.png)

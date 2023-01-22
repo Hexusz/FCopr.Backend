@@ -26,12 +26,8 @@ namespace FCopr.Application.Orders.Queries.GetOrderListForDate
         public async Task<OrderListVm> Handle(GetOrderListQueryForDate request,
             CancellationToken cancellationToken)
         {
-            DateTime date;
-
-            DateTime.TryParse(request.Date,out date);
-
             var ordersQuery = await _dbContext.Orders
-                .Where(order => order.CreateDate.Date == date.Date)
+                .Where(order => order.CreateDate.Date == request.Date.Date)
                 .ProjectTo<OrderLookupDto>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 

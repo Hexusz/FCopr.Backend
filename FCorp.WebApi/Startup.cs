@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using System.Reflection;
 using FCopr.Application;
 using FCopr.Application.Common.Mappings;
@@ -40,6 +42,13 @@ namespace FCorp.WebApi
                     policy.AllowAnyOrigin();
                 });
             });
+
+            services.AddSwaggerGen(config =>
+            {
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                config.IncludeXmlComments(xmlPath);
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -49,6 +58,12 @@ namespace FCorp.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSwagger();
+            app.UseSwaggerUI(config =>
+            {
+                config.RoutePrefix = string.Empty;
+                config.SwaggerEndpoint("swagger/v1/swagger.json", "FCorp API");
+            });
             app.UseCustomExceptionHandler();
             app.UseRouting();
             app.UseHttpsRedirection();

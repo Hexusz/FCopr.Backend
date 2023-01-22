@@ -3,6 +3,7 @@ using FCopr.Application;
 using FCopr.Application.Common.Mappings;
 using FCopr.Application.Interfaces;
 using FCorp.Persistence;
+using FCorp.WebApi.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -48,6 +49,7 @@ namespace FCorp.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCustomExceptionHandler();
             app.UseRouting();
             app.UseHttpsRedirection();
             app.UseCors("AllowAll");

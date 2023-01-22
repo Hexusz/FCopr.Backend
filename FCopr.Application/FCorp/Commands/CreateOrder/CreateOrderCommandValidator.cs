@@ -13,8 +13,6 @@ namespace FCopr.Application.FCorp.Commands.CreateOrder
         {
             RuleFor(createOrderCommand =>
                 createOrderCommand.ClientFullName).NotEmpty();
-            RuleFor(createOrderCommand =>
-                createOrderCommand.Status).NotEmpty();
         }
     }
 }

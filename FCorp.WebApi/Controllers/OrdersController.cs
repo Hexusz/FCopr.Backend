@@ -52,11 +52,7 @@ namespace FCorp.WebApi.Controllers
             command.ClientFullName = createOrderDto.ClientFullName;
             command.Positions = createOrderDto.Positions;
             command.Status = createOrderDto.Status;
-            command.Positions = new List<OrderPositions>()
-            {
-                new OrderPositions(){OrderId = command.OrderId, GoodId = 1},
-                new OrderPositions(){OrderId = command.OrderId, GoodId = 2}
-            };
+            command.Positions = createOrderDto.Positions;
             var orderId = await Mediator.Send(command);
             return Ok(orderId);
         }

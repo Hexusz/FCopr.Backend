@@ -12,7 +12,8 @@ namespace FCorp.Domain
     {
         public int Id { get; set; }
         public ushort OrderId { get; set; }
-        public int GoodId { get; set; }
+        public sbyte GoodArticul { get; set; }
+        public Good Good { get; set; }
         public byte Count { get; set; }
 
     }

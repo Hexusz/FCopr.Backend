@@ -12,12 +12,7 @@ namespace FCopr.Application.FCorp.Commands.UpdateOrder
     {
         public UpdateOrderCommandValidator()
         {
-            RuleFor(createOrderCommand =>
-                createOrderCommand.OrderId).NotEmpty();
-            RuleFor(createOrderCommand =>
-                createOrderCommand.ClientFullName).NotEmpty();
-            RuleFor(createOrderCommand =>
-                createOrderCommand.Status).NotEmpty();
+            RuleFor(updateOrderCommand => updateOrderCommand.OrderId).NotEmpty();
         }
     }
 }

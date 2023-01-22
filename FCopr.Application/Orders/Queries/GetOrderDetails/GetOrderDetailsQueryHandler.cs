@@ -24,7 +24,7 @@ namespace FCopr.Application.Orders.Queries.GetOrderDetails
         public async Task<OrderDetailsVm> Handle(GetOrderDetailsQuery request,
             CancellationToken cancellationToken)
         {
-            var entity = await _dbContext.Orders.Include(u => u.Positions)
+            var entity = await _dbContext.Orders.Include(u => u.Positions).ThenInclude(p=>p.Good)
                 .FirstOrDefaultAsync(order =>
                     order.OrderId == request.OrderId, cancellationToken);
 

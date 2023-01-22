@@ -23,7 +23,7 @@ namespace FCopr.Application.FCorp.Commands.UpdateOrder
             CancellationToken cancellationToken)
         {
             var entity =
-                await _dbContext.Orders.Include(u => u.Positions)
+                await _dbContext.Orders.Include(u => u.Positions).ThenInclude(p => p.Good)
                     .FirstOrDefaultAsync(order =>
                     order.OrderId == request.OrderId, cancellationToken);
 

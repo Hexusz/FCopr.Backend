@@ -1,4 +1,4 @@
-name: Create Release
+name: .NET
 
 on:
   push:

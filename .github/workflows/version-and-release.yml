@@ -28,7 +28,7 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
     - name: Build the Docker image
-      run: docker build . --file FCorp.WebApi/Dockerfile --tag latest
+      run: docker build . --file FCorp.WebApi/Dockerfile --tag fcorpimage
     - name: Save Docker image
       run: docker image save fcorpimage:latest -o fcorpimage.tar
 

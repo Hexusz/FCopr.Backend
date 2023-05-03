@@ -33,8 +33,7 @@ jobs:
       run: docker image save fcorpimage:latest -o fcorpimage.tar
 
     - name: Create Release
-      id: create_release
-    - uses: ncipollo/release-action@v1
+      uses: ncipollo/release-action@v1
       with:
         artifacts: "fcorpimage.tar"
         bodyFile: "body.md"

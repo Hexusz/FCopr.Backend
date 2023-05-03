@@ -28,7 +28,7 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag FCorpImage:$(date +%s)
+      run: docker build . --file Dockerfile --tag fcorpimage:$(date +%s)
 
     - name: Create Release
       id: create_release
